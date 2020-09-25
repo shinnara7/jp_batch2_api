@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::apiresource('categories','Api\CategoryController');
 Route::apiresource('posts','Api\PostController');
+ Route::get('postsByCategory/{category_id}','Api\PostController@filterByCategory');

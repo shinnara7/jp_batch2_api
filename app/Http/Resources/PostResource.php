@@ -16,14 +16,14 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
+        // return parent::toArray($request);
         return [
             'post_id' => $this->id,
             'post_title' => $this->title,
             'post_photo' => url($this->photo),
             'post_content' => $this->content,
-            'post_category' => new CategoryResource(Category::find($this->category_id)),
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'),    
+            'post_category' => new CategoryResource($this->category),
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
         ];
     }
